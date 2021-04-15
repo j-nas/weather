@@ -1,3 +1,42 @@
 body {
   background-color: darkkhaki;
 }
+
+.container {
+  position: absolute;
+  display: grid;
+  margin-left: 50%;
+  margin-right: 50%;
+  grid-template-rows: 30px 30px auto;
+}
+
+
+.cityCard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: 
+    "title title temp"
+    "icon condition ."
+    "delete 5day .";
+  width: 330px;
+  height: 300px;
+  background-color: white;
+  margin: 1em;
+
+}
+.currentTemp {
+  grid-area: temp;
+  font-size: xxx-large;
+}
+.cityName {
+  grid-area: title;
+  font-size: xxx-large;
+}
+.deleteButton {
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+}

@@ -1,5 +1,5 @@
 body {
-  background-color: darkkhaki;
+  background-color: #e2e1e0;
 }
 
 .container {
@@ -9,11 +9,32 @@ body {
   width: 330px
  }
 .input {
-  width: 260px;
+  width: fit-content;
   margin: 0 auto;
   margin-bottom: 20px;
-}
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
+}
+#searchBar {
+  border-style: none;
+  height: 1.4em
+}
+#searchBar:focus {
+  outline: none;
+}
+.submitButton {
+  border-style: none;
+  height: 1.55em;
+  background-color: #ffc947;
+  width: max-content;
+}
+.submitButton:focus {
+  outline: none;
+}
+.errorMessage {
+  position: absolute;
+  color: rgb(107, 0, 0);
+}
 .unitSelection {
   display: grid;
   grid-template-columns: 110px 110px 110px;
@@ -51,6 +72,7 @@ body {
   background-color: white;
   margin-top: 1em;
   margin-bottom: 1em;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
 }
 .currentTemp {
@@ -61,6 +83,9 @@ body {
 .cityName {
   grid-area: title;
   font-size: xxx-large;
+  background-color: #009be5;
+  color: white;
+  text-align: center;
 }
 .conditionIcon {
   grid-area: icon;
@@ -68,6 +93,7 @@ body {
 .currentCondition {
   grid-area: condition;
   place-self: center;
+  font-size: xx-large;
 }
 
 .deleteButton {
@@ -77,22 +103,23 @@ body {
   text-align: center;
   text-justify: center;
   font-size: 20pt;
-  left: 0;
+  margin-left: .6em;
+  margin-bottom: .6em;
   height: 1.2em;
   width: 1.2em;
-  border-style: solid;
+  border-style: none;
+  border-radius: 50%;
+  background-color: #ffc947;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-.deleteButton:hover {
-  background-color: tomato;
-}
+
 
 .fiveDayButton {
   grid-area: fiveday;
   align-self: end;
-  border-top-style: solid;
-  border-left-style: solid;
-  border-right-style: solid;
-  border-top-left-radius: .5em;
-  border-top-right-radius: .5em;
   text-align: center;
+  background-color: #ffc947;
+  margin-bottom: .7em;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
 }

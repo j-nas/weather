@@ -26,7 +26,7 @@ const baseRender = () => {
 
   const errorMessage = document.createElement("div");
   errorMessage.classList.add("errorMessage");
-  errorMessage.hidden = "true";
+  // errorMessage.hidden = "true";
   errorMessage.innerText = "Error. Check spelling, and try again.";
   inputArea.appendChild(errorMessage)
 

@@ -25,30 +25,49 @@ const baseRender = () => {
   inputArea.appendChild(submitButton)
 
   const errorMessage = document.createElement("div");
-  errorMessage.class = "errorMessage";
+  errorMessage.classList.add("errorMessage");
   errorMessage.hidden = "true";
   errorMessage.innerText = "Error. Check spelling, and try again.";
   inputArea.appendChild(errorMessage)
 
-  const unitSelect = document.createElement("label");
-  unitSelect.classList.add("toggle");
-  unitSelect.setAttribute("for", "unitToggle");
-  container.appendChild(unitSelect);
+  
+  const unitSelection = document.createElement("div")
+  unitSelection.classList.add("unitSelection")
+  container.appendChild(unitSelection) //container for unit selection
+  
 
-  const toggle = document.createElement("input");
-  toggle.classList.add("toggle__input");
-  toggle.type = "checkbox";
-  toggle.id = "unitToggle";
-  toggle.name = ""
+  const far = document.createElement("div")
+  far.innerText = "Farhenheight"
+  far.id = "fahr"
+  unitSelection.appendChild(far)
+ 
+
+  const toggle = document.createElement("label");
+  toggle.classList.add("toggle");
+  toggle.setAttribute("for", "unitToggle");
+  unitSelection.appendChild(toggle); // label/container for toggle
+
+  
+
+  const toggleInput = document.createElement("input");
+  toggleInput.classList.add("toggle__input");
+  toggleInput.type = "checkbox";
+  toggleInput.id = "unitToggle";
+  toggleInput.name = ""
   
   if (unitScale.getUnit() == "metric") {
-    toggle.checked = "yes";
+    toggleInput.checked = "yes";
   }
-  unitSelect.appendChild(toggle);
+  toggle.appendChild(toggleInput);
 
   const toggleFill = document.createElement("div");
   toggleFill.classList.add("toggle__fill");
-  unitSelect.appendChild(toggleFill)
+  toggle.appendChild(toggleFill)
+
+  const cel = document.createElement("div")
+  cel.innerText = "Celcius"
+  cel.id = "cel"
+  unitSelection.appendChild(cel) //celcius label
 
   const mainContent = document.createElement("div");
   mainContent.classList.add("mainContent");
@@ -105,7 +124,7 @@ const cards = (() => {
 
       const fiveDayButton = document.createElement("div");
       fiveDayButton.classList.add("fiveDayButton")
-      fiveDayButton.innerText = "5 DAY FORECAST HERE"
+      fiveDayButton.innerText = "5 DAY FORECAST"
       cityCard.appendChild(fiveDayButton)
     }
   };

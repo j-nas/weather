@@ -21,11 +21,12 @@ const unitScale = (() => {
 
 const cities = (() => {
   if (!localStorage.getItem("cities")) {
-    localStorage.setItem("cities", "[]");
+    localStorage.setItem("cities", JSON.stringify([]));
   }
   const addCity = (city) => {
-    let arr = getCities();
-    localStorage.setItem("cities", JSON.stringify(arr.push(city)));
+    let arr = getCities()
+    arr.push(city)
+    localStorage.setItem("cities", JSON.stringify(arr));
   };
   const getCities = () => {
     return JSON.parse(localStorage.getItem("cities"));

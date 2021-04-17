@@ -62,13 +62,14 @@ body {
 .cityCard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 60.23 104.55 60.23 300;
   grid-template-areas: 
     "title title title"
     "icon condition temp"
-    "delete fiveday .";
+    "delete fiveday ."
+    "fore fore fore";
   width: 330px;
-  height: 225px;
+  height: auto;
   background-color: white;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -82,7 +83,7 @@ body {
 }
 .cityName {
   grid-area: title;
-  font-size: xxx-large;
+  font-size: 20pt;
   background-color: #009be5;
   color: white;
   text-align: center;
@@ -107,19 +108,47 @@ body {
   margin-bottom: .6em;
   height: 1.2em;
   width: 1.2em;
+  padding: .2em;
   border-style: none;
   border-radius: 50%;
   background-color: #ffc947;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 }
 
 
 .fiveDayButton {
   grid-area: fiveday;
   align-self: end;
+  justify-self: center;
   text-align: center;
   background-color: #ffc947;
-  margin-bottom: .7em;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  padding: .5em;
+  margin-bottom: 1.2em;
+  box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 
+}
+
+.forecastCard {
+  grid-area: fore;
+  width: 330px;
+  height: auto;
+  background-color: #323232;
+  
+ 
+  position: relative;
+}
+
+table {
+  margin: auto;;
+}
+
+th {
+  /* background-color: #009be5; */
+  border-color: #009be5;
+  padding: 2px;
+  color: white;
+
+}
+td {
+  color: white;
 }

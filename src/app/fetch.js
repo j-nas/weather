@@ -22,12 +22,15 @@ const getWeather = (() => {
 })();
 
 async function fetchCity(city) {
-  const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${city.replace(" ", "+")}&APPID=ffeb3c454a61829a57de59148fa37655`,
-    {mode: "cors"}
-  )
-  const result = await response.json()
+  
+    const response = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${city.replace(" ", "+")}&APPID=ffeb3c454a61829a57de59148fa37655`,
+      {mode: "cors"}
+    )
     
-  return result.name
+    const result = await response.json()
+    return result.name
+  
+   
 }
 export { getWeather, fetchCity };

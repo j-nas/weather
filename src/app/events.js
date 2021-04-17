@@ -13,13 +13,31 @@ const listeners = (() => {
       const inputField = document.getElementById("searchBar")
       let verified = await fetchCity(inputField.value)
       const error = document.querySelector(".errorMessage")
-      if (verified == "404" || verified == "401") {
+      console.log(verified)
+      if (verified == undefined) {
         error.hidden = false
         return
       }
       error.hidden = true
       cities.addCity(verified)
       cards.render()
+    }
+    if (e.target.classList == "deleteButton") {
       
-  }})    
+      cities.delCity(e.target.parentElement.id)
+      cards.render()
+      
+    }
+
+    if (e.target.classList == "fiveDayButton") {
+      if (e.target.classList == "fiveDayButton")
+      e.target.nextSibling.hidden = false
+      e.target.classList.add('open')
+      
+    } else if(e.targetClassList == "fiveDayButton open") {
+      e.target.nextSibling.hidden = true
+      e.target.classList.remove('open')
+      
+    }
+  })    
 })()

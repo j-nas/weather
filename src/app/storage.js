@@ -35,7 +35,7 @@ const cities = (() => {
     let arr = getCities();
     localStorage.setItem(
       "cities",
-      JSON.stringify(arr.filter((c) => c == city))
+      JSON.stringify(arr.filter((c) => c !== city))
     );
   };
 

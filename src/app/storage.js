@@ -9,8 +9,8 @@ const unitScale = (() => {
   };
   const getUnit = () => {
     let unit = localStorage.getItem("unit");
-    
-    return unit
+
+    return unit;
   };
 
   return {
@@ -24,8 +24,8 @@ const cities = (() => {
     localStorage.setItem("cities", JSON.stringify([]));
   }
   const addCity = (city) => {
-    let arr = getCities()
-    arr.push(city)
+    let arr = getCities();
+    arr.push(city);
     localStorage.setItem("cities", JSON.stringify(arr));
   };
   const getCities = () => {
@@ -46,4 +46,4 @@ const cities = (() => {
   };
 })();
 
-export { unitScale, cities }
+export { unitScale, cities };

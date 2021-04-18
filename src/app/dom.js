@@ -1,6 +1,6 @@
 import { unitScale, cities } from "./storage";
 import { getWeather } from "./fetch";
-import { getDay, fromUnixTime, parseISO } from "date-fns";
+import { getDay, parseISO } from "date-fns";
 
 const baseRender = () => {
   const body = document.querySelector("body");
@@ -18,6 +18,7 @@ const baseRender = () => {
   searchBar.type = "text";
   searchBar.value = "Enter city name";
   searchBar.id = "searchBar";
+  searchBar.setAttribute("onfocus", "this.select()")
   inputArea.appendChild(searchBar);
 
   const submitButton = document.createElement("button");
@@ -33,17 +34,17 @@ const baseRender = () => {
 
   const unitSelection = document.createElement("div");
   unitSelection.classList.add("unitSelection");
-  container.appendChild(unitSelection); //container for unit selection
+  container.appendChild(unitSelection);
 
   const far = document.createElement("div");
-  far.innerText = "Farhenheight";
+  far.innerText = "Fahrenheit";
   far.id = "fahr";
   unitSelection.appendChild(far);
 
   const toggle = document.createElement("label");
   toggle.classList.add("toggle");
   toggle.setAttribute("for", "unitToggle");
-  unitSelection.appendChild(toggle); // label/container for toggle
+  unitSelection.appendChild(toggle);
 
   const toggleInput = document.createElement("input");
   toggleInput.classList.add("toggle__input");
@@ -63,7 +64,7 @@ const baseRender = () => {
   const cel = document.createElement("div");
   cel.innerText = "Celcius";
   cel.id = "cel";
-  unitSelection.appendChild(cel); //celcius label
+  unitSelection.appendChild(cel); 
 
   const mainContent = document.createElement("div");
   mainContent.classList.add("mainContent");
@@ -87,15 +88,12 @@ const cards = (() => {
   const render = async () => {
     let arrCities = await cities.getCities();
     const _mainContent = document.querySelector(".mainContent");
-    _mainContent.innerHTML = ""
-    // let arrCities = ["vancouver", "hong kong"];
-
+    _mainContent.innerHTML = "";
     for (let i = 0; i < arrCities.length; i++) {
       const currentCity = await getWeather.today(
         arrCities[i],
         unitScale.getUnit()
-        );
-        console.log(currentCity)
+      );
       const currentCityForecast = await getWeather.fiveDay(
         arrCities[i],
         unitScale.getUnit()
@@ -155,14 +153,14 @@ const cards = (() => {
         dataRow.innerHTML = `<td>${
           daysOfWeek[getDay(parseISO(currentCityForecast.list[j].dt_txt))]
         }</td><td>${
-          currentCityForecast.list[j].main.temp
+          round(currentCityForecast.list[j].main.temp)
         }&deg;</td><td>${smallIcon(
           currentCityForecast.list[j].weather[0].icon,
           currentCityForecast.list[j].weather[0].description
         )}</td><td>${parseInt(
           currentCityForecast.list[j].pop * 100
-        )}%</td><td>${currentCityForecast.list[j].main.temp_min}&deg;</td><td>${
-          currentCityForecast.list[j].main.temp_min
+        )}%</td><td>${round(currentCityForecast.list[j].main.temp_max)}&deg;</td><td>${
+          round(currentCityForecast.list[j].main.temp_min)
         }&deg;</td>`;
         table.appendChild(dataRow);
       }
